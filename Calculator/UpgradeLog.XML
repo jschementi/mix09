@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Calculator">
+</Property><Property Name="Solution File" Value="c:\dev\mix09\Calculator\Calculator.sln">
+</Property><Property Name="User Options File" Value="c:\dev\mix09\Calculator\Calculator.suo">
+</Property><Property Name="Date" Value="Tuesday, March 10, 2009">
+</Property><Property Name="Time" Value="14:18 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="Calculator.sln" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator.sln">
+</Event><Event ErrorLevel="0" Project="" Source="Calculator.suo" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator.suo">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\CalculatorTestApp.csproj" Description="Project file successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\CalculatorTestApp.csproj">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\CalculatorTestApp.csproj.user" Description="Project user file successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\CalculatorTestApp.csproj.user">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\App.xaml.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\App.xaml.cs">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\Page.xaml.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\Page.xaml.cs">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\Properties\AssemblyInfo.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\Properties\AppManifest.xml" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\Properties\AppManifest.xml">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\App.xaml" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\App.xaml">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\Page.xaml" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\CalculatorTestApp\Page.xaml">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\CalculatorTestApp.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CalculatorTestApp" Source="CalculatorTestApp\CalculatorTestApp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Project file successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator\Calculator.csproj">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.csproj.user" Description="Project user file successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator\Calculator.csproj.user">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator\Calculator.cs">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Properties\AssemblyInfo.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Themes\Generic.xaml" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Calculator\Themes\Generic.xaml">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Number" Source="Number\Number.csproj" Description="Project file successfully backed up as c:\dev\mix09\Calculator\Backup\Number\Number.csproj">
+</Event><Event ErrorLevel="0" Project="Number" Source="Number\Number.csproj.user" Description="Project user file successfully backed up as c:\dev\mix09\Calculator\Backup\Number\Number.csproj.user">
+</Event><Event ErrorLevel="0" Project="Number" Source="Number\Number.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Number\Number.cs">
+</Event><Event ErrorLevel="0" Project="Number" Source="Number\Properties\AssemblyInfo.cs" Description="File successfully backed up as c:\dev\mix09\Calculator\Backup\Number\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Number" Source="Number\Number.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Number" Source="Number\Number.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Calculator.sln" Description="The solution file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="" Source="Calculator.sln" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="CalculatorTestApp" Source="CalculatorTestApp\CalculatorTestApp.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="Number" Source="Number\Number.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

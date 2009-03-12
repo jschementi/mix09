@@ -1,0 +1,70 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:CalculatorProject">
+
+    <Style TargetType="local:Calculator">
+        <Setter Property="IsTabStop" Value="False"></Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:Calculator">
+                    <Border BorderBrush="Gray" BorderThickness="5" CornerRadius="8" Background="LightGray" Padding="3">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="0"  BorderBrush="Black" BorderThickness="2" CornerRadius="5"
+                                    Background="WhiteSmoke"
+                                    Margin="0,0,0,4">
+                                <ScrollViewer HorizontalScrollBarVisibility="Visible"
+                                              VerticalScrollBarVisibility="Hidden">
+                                    <TextBlock x:Name="ScreenTextBlock" Text="0" FontFamily="Verdana" FontSize="14"
+                                           HorizontalAlignment="Right" VerticalAlignment="Center" Margin="2">
+                                    </TextBlock>
+                                </ScrollViewer>
+                            </Border>
+
+                            <Grid Grid.Row="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*" ></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                    <RowDefinition Height="*"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Button x:Name="ClearButton" Grid.Row="0" Grid.Column="0" Content="C" Foreground="Red"></Button>
+                                <Button x:Name="EqualsButton" Grid.Row="3" Grid.Column="3" Grid.RowSpan="2" Content="="></Button>
+                                <Button x:Name="OneButton" Grid.Row="3" Grid.Column="0" Content="1"></Button>
+                                <Button x:Name="TwoButton" Grid.Row="3" Grid.Column="1" Content="2"></Button>
+                                <Button x:Name="ThreeButton" Grid.Row="3" Grid.Column="2" Content="3"></Button>
+                                <Button x:Name="FourButton" Grid.Row="2" Grid.Column="0" Content="4"></Button>
+                                <Button x:Name="FiveButton" Grid.Row="2" Grid.Column="1" Content="5"></Button>
+                                <Button x:Name="SixButton" Grid.Row="2" Grid.Column="2" Content="6"></Button>
+                                <Button x:Name="SevenButton" Grid.Row="1" Grid.Column="0" Content="7"></Button>
+                                <Button x:Name="EightButton" Grid.Row="1" Grid.Column="1" Content="8"></Button>
+                                <Button x:Name="NineButton" Grid.Row="1" Grid.Column="2" Content="9"></Button>
+                                <Button x:Name="ZeroButton" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Content="0"></Button>
+                                <Button x:Name="NegateButton" Grid.Row="0" Grid.Column="1" Content="+/-"></Button>
+                                <Button x:Name="FloatButton" Grid.Row="4" Grid.Column="2" Content="."></Button>
+                                <Button x:Name="AddButton" Grid.Row="2" Grid.Column="3" Content="+"></Button>
+                                <Button x:Name="SubtractButton" Grid.Row="1" Grid.Column="3" Content="-"></Button>
+                                <Button x:Name="MultiplyButton" Grid.Row="0" Grid.Column="3" Content="*"></Button>
+                                <Button x:Name="DivideButton" Grid.Row="0" Grid.Column="2" Content="/"></Button>
+                                
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
