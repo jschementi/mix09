@@ -48,6 +48,11 @@ namespace CalculatorProject
         private bool isEnteringSecondNumber = false;
         private bool isCalculationDone = false;
 
+        public Number CurrentNumber {
+            get { return currentNumber; }
+            set { currentNumber = value; }
+        }
+
         #endregion
 
         #region Constructors
@@ -266,7 +271,7 @@ namespace CalculatorProject
 
         #region Private Methods
 
-        private void OnValueChanged()
+        public void OnValueChanged()
         {
             ScreenTextBlock.Text = currentNumber.ToString();
         }

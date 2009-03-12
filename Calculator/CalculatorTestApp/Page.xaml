@@ -3,24 +3,39 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:calculator="clr-namespace:CalculatorProject;assembly=Calculator"
     Width="440" Height="320">
-    <Grid x:Name="LayoutRoot">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <calculator:Calculator 
-            Grid.Column="0" 
-            Width="200" 
-            Height="300">
-        </calculator:Calculator>
-        <TextBox 
-            Grid.Column="1" 
-            Margin="10" 
-            VerticalScrollBarVisibility="Auto" 
-            HorizontalScrollBarVisibility="Auto"
-            MaxHeight="1000"
-            AcceptsReturn="True"
-            x:Name="code">
-        </TextBox>
-    </Grid>
+    <Border BorderBrush="Gray" BorderThickness="5" CornerRadius="8" Background="LightGray" Padding="3">
+        <Grid x:Name="LayoutRoot">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <calculator:Calculator 
+                Grid.Column="0"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Width="200" 
+                Height="300" 
+                x:Name="Calculator"/>
+            <StackPanel
+                Margin="2"
+                Grid.Column="1"
+                Grid.Row="0"
+                Orientation="Horizontal"
+                x:Name="FunctionDefinitions">
+            </StackPanel>
+            <TextBox 
+                Grid.Column="1" 
+                Grid.Row="1"
+                Margin="2"
+                VerticalScrollBarVisibility="Auto" 
+                HorizontalScrollBarVisibility="Auto"
+                MaxHeight="1000"
+                AcceptsReturn="True"
+                x:Name="Functions" />
+        </Grid>
+    </Border>
 </UserControl>

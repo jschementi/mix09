@@ -8,7 +8,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:Calculator">
-                    <Border BorderBrush="Gray" BorderThickness="5" CornerRadius="8" Background="LightGray" Padding="3">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -62,7 +61,6 @@
                                 
                             </Grid>
                         </Grid>
-                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
