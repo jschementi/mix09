@@ -40,7 +40,7 @@ namespace CalculatorTestApp
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri("http://localhost:35348/Script/save", UriKind.Absolute)); 
             request.Method = "POST"; 
             request.ContentType = "application/x-www-form-urlencoded"; 
-            request.BeginGetRequestStream(new AsyncCallback(RequestReady), request); 
+            request.BeginGetRequestStream(new AsyncCallback(RequestReady), request);
         }
 
         void RequestReady(IAsyncResult asyncResult) 
@@ -60,17 +60,22 @@ namespace CalculatorTestApp
 
         void ResponseReady(IAsyncResult asyncResult) 
         {           
-            HttpWebRequest request = asyncResult.AsyncState as HttpWebRequest; 
-            HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asyncResult); 
-            this.Dispatcher.BeginInvoke(delegate() 
-            { 
-                Stream responseStream = response.GetResponseStream(); 
-                StreamReader reader = new StreamReader(responseStream); 
-                string result = reader.ReadToEnd();
+            HttpWebRequest request = asyncResult.AsyncState as HttpWebRequest;
+            try {
+                HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asyncResult);
+                this.Dispatcher.BeginInvoke(delegate() {
+                    Stream responseStream = response.GetResponseStream();
+                    StreamReader reader = new StreamReader(responseStream);
+                    string result = reader.ReadToEnd();
 
-                HtmlPage.Window.Alert("Saved!");
-                SaveFunctions.Content = "Save";
-            });       
+                    HtmlPage.Window.Alert("Saved!");
+                });
+            } catch (Exception e) {
+                this.Dispatcher.BeginInvoke(delegate() {
+                    HtmlPage.Window.Alert("Error, sorry!");
+                });
+            }
+            SaveFunctions.Content = "Save";
         }
 
         void LoadFunctions_Click(object sender, RoutedEventArgs e) {
