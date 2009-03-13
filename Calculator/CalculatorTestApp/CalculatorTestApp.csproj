@@ -53,27 +53,27 @@
   <ItemGroup>
     <Reference Include="IronPython, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\jimmysch\dev\mix09\AgDLR\bin\IronPython.dll</HintPath>
+      <HintPath>..\..\AgDLR\bin\IronPython.dll</HintPath>
     </Reference>
     <Reference Include="IronPython.Modules, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\jimmysch\dev\mix09\AgDLR\bin\IronPython.Modules.dll</HintPath>
+      <HintPath>..\..\AgDLR\bin\IronPython.Modules.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Scripting, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\jimmysch\dev\mix09\AgDLR\bin\Microsoft.Scripting.dll</HintPath>
+      <HintPath>..\..\AgDLR\bin\Microsoft.Scripting.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Scripting.Core, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\jimmysch\dev\mix09\AgDLR\bin\Microsoft.Scripting.Core.dll</HintPath>
+      <HintPath>..\..\AgDLR\bin\Microsoft.Scripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Scripting.ExtensionAttribute, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\jimmysch\dev\mix09\AgDLR\bin\Microsoft.Scripting.ExtensionAttribute.dll</HintPath>
+      <HintPath>..\..\AgDLR\bin\Microsoft.Scripting.ExtensionAttribute.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Scripting.Silverlight, Version=2.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Users\jimmysch\dev\mix09\AgDLR\bin\Microsoft.Scripting.Silverlight.dll</HintPath>
+      <HintPath>..\..\AgDLR\bin\Microsoft.Scripting.Silverlight.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows" />
     <Reference Include="mscorlib" />
