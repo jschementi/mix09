@@ -4,9 +4,9 @@ class ScriptController < Controller
     view nil, 'layout', @code
   end
 
-  def index 
-    @codeview = ScriptController.class_variable_defined?(:@@code) ?
-      @@code : 'No code yet!'
-    view 'show', 'layout', @codeview
+  def index
+    @@code = ScriptController.class_variable_defined?(:@@code) ?
+      @@code : "def foo(x):\n  return x * x\n"
+    view 'show', 'layout', @@code
   end
 end

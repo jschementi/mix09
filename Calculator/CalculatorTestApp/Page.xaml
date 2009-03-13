@@ -12,11 +12,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <calculator:Calculator 
                 Grid.Column="0"
                 Grid.Row="0"
-                Grid.RowSpan="2"
+                Grid.RowSpan="3"
                 Width="200" 
                 Height="300" 
                 x:Name="Calculator"/>
@@ -36,6 +37,15 @@
                 MaxHeight="1000"
                 AcceptsReturn="True"
                 x:Name="Functions" />
+            <StackPanel
+                Grid.Column="1"
+                Grid.Row="2"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right"
+                >
+                <Button x:Name="LoadFunctions" Content="Load" Margin="2" />
+                <Button x:Name="SaveFunctions" Content="Save" Margin="2" />
+            </StackPanel>
         </Grid>
     </Border>
 </UserControl>

@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using Microsoft.Scripting.Hosting;
 using IronPython.Hosting;
 using System.Windows.Browser;
+using System.IO;
 
 namespace CalculatorTestApp
 {
@@ -28,8 +29,63 @@ namespace CalculatorTestApp
             Functions.KeyUp += new KeyEventHandler(Functions_KeyUp);
 
             // Pre-define a simple user-defined function
-            Functions.Text = "def foo(x):\n  return x * x\n";
+            LoadFunctions_Click(SaveFunctions, null);
+
+            LoadFunctions.Click += new RoutedEventHandler(LoadFunctions_Click);
+            SaveFunctions.Click += new RoutedEventHandler(SaveFunctions_Click);
+        }
+
+        void SaveFunctions_Click(object sender, RoutedEventArgs e) {
+            SaveFunctions.Content = "Saving ...";
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri("http://localhost:35348/Script/save", UriKind.Absolute)); 
+            request.Method = "POST"; 
+            request.ContentType = "application/x-www-form-urlencoded"; 
+            request.BeginGetRequestStream(new AsyncCallback(RequestReady), request); 
+        }
+
+        void RequestReady(IAsyncResult asyncResult) 
+        { 
+            HttpWebRequest request = asyncResult.AsyncState as HttpWebRequest; 
+            Stream stream = request.EndGetRequestStream(asyncResult); 
+
+            this.Dispatcher.BeginInvoke(delegate() 
+            { 
+                StreamWriter writer = new StreamWriter(stream);
+                writer.Write(string.Format("code={0}", Functions.Text));
+                writer.Flush();
+                writer.Close();
+                request.BeginGetResponse(new AsyncCallback(ResponseReady), request); 
+            }); 
+        }
+
+        void ResponseReady(IAsyncResult asyncResult) 
+        {           
+            HttpWebRequest request = asyncResult.AsyncState as HttpWebRequest; 
+            HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asyncResult); 
+            this.Dispatcher.BeginInvoke(delegate() 
+            { 
+                Stream responseStream = response.GetResponseStream(); 
+                StreamReader reader = new StreamReader(responseStream); 
+                string result = reader.ReadToEnd();
+
+                HtmlPage.Window.Alert("Saved!");
+                SaveFunctions.Content = "Save";
+            });       
+        }
+
+        void LoadFunctions_Click(object sender, RoutedEventArgs e) {
+            Functions.Text = "Loading ...";
+            WebClient wc = new WebClient(); 
+            string sRequest = "/Script";
+            wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadStringCompleted);
+            wc.DownloadStringAsync(new Uri(sRequest, UriKind.Relative));
+        }
+
+        void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e) {
+            Functions.IsEnabled = false;
+            Functions.Text = e.Result;
             Functions_KeyUp(Functions, null);
+            Functions.IsEnabled = true;
         }
 
         // Execute the script code in the Functions buffer, and add buttons to the UI
