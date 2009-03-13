@@ -131,4 +131,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>$(SolutionDir)egg.bat</PreBuildEvent>
+  </PropertyGroup>
 </Project>
