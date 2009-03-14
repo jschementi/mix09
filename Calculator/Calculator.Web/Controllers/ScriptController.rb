@@ -1,12 +1,14 @@
+require 'code'
+
 class ScriptController < Controller
   def save
-    @@code = Request.Form["Code"]
-    view nil, 'layout', @code
+    return 'Error: must be a POST request' unless self.request.http_method.to_s == "POST"
+    
+    Code.save self.request.Form["code"].to_s
+    true
   end
 
   def index
-    @@code = ScriptController.class_variable_defined?(:@@code) ?
-      @@code : "def foo(x):\n  return x * x\n"
-    view 'show', 'layout', @@code
+    Code.get
   end
 end

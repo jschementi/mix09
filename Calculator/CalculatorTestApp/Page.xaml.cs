@@ -37,45 +37,54 @@ namespace CalculatorTestApp
 
         void SaveFunctions_Click(object sender, RoutedEventArgs e) {
             SaveFunctions.Content = "Saving ...";
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(new Uri("http://localhost:35348/Script/save", UriKind.Absolute)); 
+
+            var uri = new Uri(HtmlPage.Document.DocumentUri, "/Script/save");
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
             request.Method = "POST"; 
             request.ContentType = "application/x-www-form-urlencoded"; 
-            request.BeginGetRequestStream(new AsyncCallback(RequestReady), request);
+            request.BeginGetRequestStream(new AsyncCallback(SaveFunctions_RequestProceed), request);
         }
 
-        void RequestReady(IAsyncResult asyncResult) 
+        void SaveFunctions_RequestProceed(IAsyncResult asyncResult) 
         { 
             HttpWebRequest request = asyncResult.AsyncState as HttpWebRequest; 
-            Stream stream = request.EndGetRequestStream(asyncResult); 
+            Stream postData = request.EndGetRequestStream(asyncResult); 
 
             this.Dispatcher.BeginInvoke(delegate() 
             { 
-                StreamWriter writer = new StreamWriter(stream);
-                writer.Write(string.Format("code={0}", Functions.Text));
-                writer.Flush();
+                StreamWriter writer = new StreamWriter(postData);
+                string code = Uri.EscapeDataString(Functions.Text);
+                writer.Write(string.Format("code={0}", code));
                 writer.Close();
-                request.BeginGetResponse(new AsyncCallback(ResponseReady), request); 
+
+                request.BeginGetResponse(new AsyncCallback(SaveFunctions_ResponseProceed), request); 
             }); 
         }
 
-        void ResponseReady(IAsyncResult asyncResult) 
+        void SaveFunctions_ResponseProceed(IAsyncResult asyncResult)
         {           
             HttpWebRequest request = asyncResult.AsyncState as HttpWebRequest;
+            StreamReader reader;
             try {
                 HttpWebResponse response = (HttpWebResponse)request.EndGetResponse(asyncResult);
+                reader = new StreamReader(response.GetResponseStream());
                 this.Dispatcher.BeginInvoke(delegate() {
-                    Stream responseStream = response.GetResponseStream();
-                    StreamReader reader = new StreamReader(responseStream);
                     string result = reader.ReadToEnd();
-
-                    HtmlPage.Window.Alert("Saved!");
+                    if (result == "True") {
+                        HtmlPage.Window.Alert("Saved!");
+                    } else {
+                        HtmlPage.Window.Alert("Error, please try again");
+                    }
                 });
             } catch (Exception e) {
                 this.Dispatcher.BeginInvoke(delegate() {
-                    HtmlPage.Window.Alert("Error, sorry!");
+                    HtmlPage.Window.Alert("Error, please try again");
                 });
             }
-            SaveFunctions.Content = "Save";
+            this.Dispatcher.BeginInvoke(delegate() {
+                SaveFunctions.Content = "Save";
+            });
         }
 
         void LoadFunctions_Click(object sender, RoutedEventArgs e) {
