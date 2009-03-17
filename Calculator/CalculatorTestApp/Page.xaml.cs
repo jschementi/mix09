@@ -128,7 +128,7 @@ namespace CalculatorTestApp
                 object result = _engine.CallMethod((string)((Button)sender).Tag, (object)Decimal.Parse(Calculator.CurrentNumber.ToString()));
                 Calculator.CurrentNumber = new NumberProject.Number(result.ToString());
                 Calculator.OnValueChanged();
-            } catch (Exception _e) {
+            } catch (Exception) {
                 HtmlPage.Window.Alert("The user-defined function returned None");
             }
         }

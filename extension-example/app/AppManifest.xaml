@@ -1,0 +1,43 @@
+<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  RuntimeVersion="3.0.40307.00" 
+  EntryPointAssembly="Microsoft.Scripting.Silverlight" 
+  EntryPointType="Microsoft.Scripting.Silverlight.DynamicApplication">
+
+  <!-- Add assembly (DLL) references here -->
+  <Deployment.Parts>
+
+    <!-- In the XAP -->
+    <!-- <AssemblyPart Source="Foo.dll" /> -->
+
+    <!--
+    <AssemblyPart Source="Microsoft.Scripting.Core.dll" />
+    <AssemblyPart Source="Microsoft.Scripting.dll" />
+    <AssemblyPart Source="Microsoft.Scripting.ExtensionAttribute.dll" />
+    <AssemblyPart Source="Microsoft.Scripting.Silverlight.dll" />
+    <AssemblyPart Source="IronRuby.dll" />
+    <AssemblyPart Source="IronRuby.Libraries.dll" />
+    -->
+
+    <!-- Outside the XAP, same domain -->
+    <!-- <AssemblyPart Source="/Foo.dll" /> -->
+
+    <!-- Outside the XAP, different domain -->
+    <!-- <AssemblyPart Source="http://bar.com/Foo.dll" /> -->
+
+  </Deployment.Parts>
+
+  <!-- Add Microsoft Silverlight Extension (SLVX) references here -->
+  <Deployment.ExternalParts>
+  
+    <!-- Microsoft.Scripting(Core, Silverlight, ExtensionAttribute) -->
+    <!-- <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146361" /> -->
+    
+    <!-- IronRuby and IronRuby.Libraries -->
+    <!-- <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146359" /> -->
+    
+    <!-- IronPython and IronPython.Modules -->
+    <!-- <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146360" /> -->
+
+  </Deployment.ExternalParts>
+</Deployment>
