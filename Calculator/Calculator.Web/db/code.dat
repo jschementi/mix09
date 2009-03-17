@@ -1,2 +1,2 @@
 " def foo(x):
-  return x + x
+  return x * x

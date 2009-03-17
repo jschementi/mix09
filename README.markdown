@@ -1,7 +1,8 @@
 Silverlight Dynamic Lanugage Demos for MIX 09
+=============================================
 
-== TicTacToe
-
+TicTacToe
+---------
 Testing C# Silverlight application with IronRuby
 
 To run, open TicTacToe\TicTacToe.sln in Visual Studio. 
@@ -13,8 +14,8 @@ is the start page.
 
 To run tests, add "?test" to the end of the URL.
 
-== Calculator
-
+Calculator
+----------
 A calculator with IronPython functions
 
 To run, open Calculator\Calculator.sln in Visual Studio. 
@@ -30,15 +31,20 @@ calculator value.
 
 To run tests, add "?test" to the end of the URL.
 
-== AgDLR
-
+AgDLR
+-----
 Making Silverlight applications in DLR languages
 
 See http://github.com/jschementi/agdlr for more information
 
-== Eggs
-
+Eggs
+----
 Testing Silverlight applications with IronRuby
 
 TicTacToe and Calculator use Eggs to run tests. See
 http://github.com/jschementi/eggs for more information.
+
+Silverlight Extensions
+----------------------
+Silverlight 3 supports extension for platform components, such as controls
+the DLR, etc. Run extension-example\server.bat to see how extensions work.
