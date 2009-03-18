@@ -48,3 +48,27 @@ Silverlight Extensions
 ----------------------
 Silverlight 3 supports extension for platform components, such as controls
 the DLR, etc. Run extension-example\server.bat to see how extensions work.
+
+To use the DLR extensions in your application, add a Deployment.ExternalParts
+section to your AppManifest.xaml file (or Properties\AppManifest.xml) if it's a 
+C#/VB Silverlight project).
+
+    <Deployment.ExternalParts>
+        <!-- Required: Microsoft.Scripting(Core, Silverlight, ExtensionAttribute) -->
+        <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146361" />
+
+        <!-- IronRuby and IronRuby.Libraries -->
+        <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146359" />
+
+        <!-- IronPython and IronPython.Modules -->
+        <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146360" />
+    </Deployment.ExternalParts>
+
+If you are not using IronRuby in your application, you can remove its
+ExtensionPart entry, and the same for IronPython. However, the first one is required, as
+it points to Microsot.Scripting.* DLLs.
+
+Also, if you are using these in a C#/VB Silverlight application, you need to keep the 
+local references to Microsoft.Scripting*.dll and Iron*.dll so it builds, but you don't
+want them packaged inside the XAP. To accomplish this, select all those DLLs, right-click
+and select "Properties", and set "Copy Local" to "False".
