@@ -25,4 +25,4 @@ rmdir /S /Q Microsoft.Scripting\
 popd
 popd
 
-ruby upload.rb
+ruby %~dp0upload.rb
