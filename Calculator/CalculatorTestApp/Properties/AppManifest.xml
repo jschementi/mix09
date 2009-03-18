@@ -1,6 +1,17 @@
-﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 >
     <Deployment.Parts>
     </Deployment.Parts>
+
+    <Deployment.ExternalParts>
+        <!-- Microsoft.Scripting(Core, Silverlight, ExtensionAttribute) -->
+        <!-- <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146361" /> -->
+
+        <!-- IronRuby and IronRuby.Libraries -->
+        <!-- <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146359" /> -->
+
+        <!-- IronPython and IronPython.Modules -->
+        <!-- <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146360" /> -->
+    </Deployment.ExternalParts>
 </Deployment>

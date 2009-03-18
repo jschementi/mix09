@@ -11,6 +11,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Windows.Browser;
 using System.Windows.Resources;
+using Microsoft.Scripting.Silverlight;
 
 namespace CalculatorTestApp
 {
@@ -28,7 +29,10 @@ namespace CalculatorTestApp
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new Page();
+            DynamicApplication.LoadAssemblies(delegate() {
+                this.RootVisual = new Page();
+            });
+
             if (HtmlPage.Document.QueryString.ContainsKey("test")) {
                 var xap = new Uri("eggs.xap", UriKind.Relative);
                 WebClient wcXap = new WebClient();

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Browser;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -11,9 +13,8 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
 using Microsoft.Scripting.Hosting;
+using Microsoft.Scripting.Silverlight;
 using IronPython.Hosting;
-using System.Windows.Browser;
-using System.IO;
 
 namespace CalculatorTestApp
 {
@@ -91,11 +92,11 @@ namespace CalculatorTestApp
             Functions.Text = "Loading ...";
             WebClient wc = new WebClient(); 
             string sRequest = "/Script";
-            wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(wc_DownloadStringCompleted);
+            wc.DownloadStringCompleted += new DownloadStringCompletedEventHandler(LoadFunctions_Completed);
             wc.DownloadStringAsync(new Uri(sRequest, UriKind.Relative));
         }
 
-        void wc_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e) {
+        void LoadFunctions_Completed(object sender, DownloadStringCompletedEventArgs e) {
             Functions.IsEnabled = false;
             Functions.Text = e.Result;
             Functions_KeyUp(Functions, null);
@@ -139,7 +140,7 @@ namespace CalculatorTestApp
         private ScriptScope _scope;
 
         public PythonEngine() {
-            var setup = Microsoft.Scripting.Silverlight.DynamicApplication.CreateRuntimeSetup();
+            var setup = DynamicApplication.CreateRuntimeSetup();
             setup.DebugMode = true;
             var runtime = new ScriptRuntime(setup);
             _engine = Python.GetEngine(runtime);
