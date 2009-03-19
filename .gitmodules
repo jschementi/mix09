@@ -1,0 +1,3 @@
+[submodule "spreadsheet"]
+	path = spreadsheet
+	url = git@github.com:jflam/spreadsheet.git

@@ -9,9 +9,15 @@
         <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146361" />
 
         <!-- IronRuby and IronRuby.Libraries -->
-        <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146359" />
+        <!--<ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146359" />-->
 
         <!-- IronPython and IronPython.Modules -->
         <ExtensionPart Source="http://go.microsoft.com/fwlink/?LinkID=146360" />
     </Deployment.ExternalParts>
+
+    <Deployment.ApplicationIdentity>
+        <ApplicationIdentity ShortName="Calculator" Title="Python Calculator">
+            <ApplicationIdentity.Blurb>A Python Calculator</ApplicationIdentity.Blurb>
+        </ApplicationIdentity>
+    </Deployment.ApplicationIdentity>
 </Deployment>
