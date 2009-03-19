@@ -72,3 +72,11 @@ Also, if you are using these in a C#/VB Silverlight application, you need to kee
 local references to Microsoft.Scripting*.dll and Iron*.dll so it builds, but you don't
 want them packaged inside the XAP. To accomplish this, select all those DLLs, right-click
 and select "Properties", and set "Copy Local" to "False".
+
+Lastly, in a C#/VB application you must tell the DLR to load and register any extension assemblies 
+before using any DLR features. This can simply be accomplished by wrapping the setting of RootVisual
+with a call to DynamicApplication.LoadAssemblies:
+
+    DynamicApplication.LoadAssemblies(delegate() {
+        this.RootVisual = new Page();
+    });
