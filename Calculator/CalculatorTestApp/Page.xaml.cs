@@ -25,7 +25,9 @@ namespace CalculatorTestApp
         public Page() {
             InitializeComponent();
 
-            _engine = new PythonEngine();
+            DynamicApplication.LoadAssemblies(delegate() {
+                _engine = new PythonEngine();
+            });
 
             Functions.KeyUp += new KeyEventHandler(Functions_KeyUp);
 
@@ -35,7 +37,7 @@ namespace CalculatorTestApp
             LoadFunctions.Click += new RoutedEventHandler(LoadFunctions_Click);
             SaveFunctions.Click += new RoutedEventHandler(SaveFunctions_Click);
         }
-
+        
         void SaveFunctions_Click(object sender, RoutedEventArgs e) {
             SaveFunctions.Content = "Saving ...";
 

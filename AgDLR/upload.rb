@@ -10,9 +10,9 @@ Net::SCP.start(
                end.chomp
 }) do |scp|
   ["IronRuby", "IronPython", "Microsoft.Scripting"].each do |file|
-    filename = File.expand_path(File.dirname(__FILE__)) + "/bin/#{file}.slvx"
+    filename = File.expand_path(File.dirname(__FILE__)) + "/bin/#{file}-0.5.0.slvx"
     print "Uploading #{file}..."
-    scp.upload! filename, "/home/jschementi/jimmy.schementi.com/jflamdemo/#{filename.split("/").last}"
+    scp.upload! filename, "/home/jschementi/jimmy.schementi.com/silverlight/#{filename.split("/").last}"
     puts "done"
   end
 end
