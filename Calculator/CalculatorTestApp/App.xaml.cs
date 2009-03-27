@@ -43,10 +43,6 @@ namespace CalculatorTestApp
 
         private void wcXap_OnOpenReadCompleted(object sender, OpenReadCompletedEventArgs e) {
             if ((e.Error == null) && (e.Cancelled == false)) {
-                var testList = new Dictionary<string, List<string>>() {
-                    {"tests", new List<string>() { "sample" }}
-                };
-
                 var xap = new StreamResourceInfo(e.Result, null);
                 System.Reflection.Assembly asm = new AssemblyPart().Load(
                     Application.GetResourceStream(
@@ -54,7 +50,7 @@ namespace CalculatorTestApp
                     ).Stream
                 );
                 asm.GetType("Eggs").GetMethod("Start").Invoke(null, new object[] {
-                    (object) testList, (object) xap
+                    (object) new Uri("http://localhost:35863/Calculator.Tests.xap"), (object) xap
                 });
             }
         }

@@ -1,8 +1,8 @@
 REM Use following code for private builds
 pushd c:\dev\agdlr
-msbuild /p:Configuration=Release
+msbuild /p:Configuration=Debug
 rmdir /S /Q %~dp0bin
-robocopy "bin\release" %~dp0bin Iron*.dll Microsoft*.dll Chiron.exe Chiron.exe.config
+robocopy "bin\debug" %~dp0bin Iron*.dll Microsoft*.dll Chiron.exe Chiron.exe.config
 
 REM Use following code for release builds
 REM pushd c:\dev\releases\agdlr-0.5.0.sl3b
