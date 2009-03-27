@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -136,7 +136,7 @@ namespace CalculatorProject
 
         #region EventHandlers
 
-        private void DigitButton_Click(object sender, RoutedEventArgs e)
+        public void DigitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Focus();
 
@@ -147,7 +147,7 @@ namespace CalculatorProject
             }
         }
 
-        private void OperationButton_Click(object sender, RoutedEventArgs e)
+        public void OperationButton_Click(object sender, RoutedEventArgs e)
         {
             this.Focus();
 
@@ -158,35 +158,35 @@ namespace CalculatorProject
             }
         }
 
-        private void EqualsButton_Click(object sender, RoutedEventArgs e)
+        public void EqualsButton_Click(object sender, RoutedEventArgs e)
         {
             this.Focus();
 
             OnEqualsButtonPressed();
         }
 
-        private void NegateButton_Click(object sender, RoutedEventArgs e)
+        public void NegateButton_Click(object sender, RoutedEventArgs e)
         {
             this.Focus();
 
             OnNegateButtonPressed();
         }
 
-        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        public void ClearButton_Click(object sender, RoutedEventArgs e)
         {
             this.Focus();
 
             OnClearButtonPressed();
         }
 
-        private void FloatButton_Click(object sender, RoutedEventArgs e)
+        public void FloatButton_Click(object sender, RoutedEventArgs e)
         {
             this.Focus();
 
             OnFloatButtonPressed();
         }
 
-        private void Calculator_KeyUp(object sender, KeyEventArgs e)
+        public void Calculator_KeyUp(object sender, KeyEventArgs e)
         {
             this.Focus();
 
@@ -380,6 +380,10 @@ namespace CalculatorProject
         private void OnFloatButtonPressed()
         {
             isFloatButtonPressed = true;
+        }
+
+        public DependencyObject GetChildElement(string name) {
+            return GetTemplateChild(name);
         }
 
         #endregion
