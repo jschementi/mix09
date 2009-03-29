@@ -33,7 +33,7 @@
     <Reference Include="Chiron, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <ExecutableExtension>.exe</ExecutableExtension>
-      <HintPath>bin\Chiron.exe</HintPath>
+      <HintPath>..\..\AgDLR\bin\Chiron.exe</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
