@@ -1,9 +1,6 @@
 include System::Windows
 $page = Application.current.root_visual
 
-include System::Windows::Automation::Peers
-include System::Windows::Automation::Provider
-
 describe "Tic Tac Toe" do
 
   after do

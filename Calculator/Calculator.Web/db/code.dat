@@ -1,2 +1,2 @@
-" def foo(x):
-  return x + x
+"Adef double(x):
+  return x + xdef square(x):  return x * x
