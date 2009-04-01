@@ -1,6 +1,11 @@
 include System::Windows
 
 $calc = Application.current.root_visual.find_name 'Calculator'
+
+#
+# Extend the Calculator instance with 
+# helper methods to click buttons
+#
 class << $calc 
   NUMBERS = %W(Zero One Two Three Four Five Six Seven Eight Nine)
 
@@ -30,6 +35,11 @@ class << $calc
     get_child_element('ScreenTextBlock').text.to_s
   end
 
+  #
+  # Do a list of calculator commands
+  #
+  #   do 1, 'Add', 2, 'equals'
+  #
   def do(*ops)
     ops.each do |op|
       if respond_to?(op.to_s)
@@ -39,6 +49,20 @@ class << $calc
       end
     end
   end
+end
+
+#
+# Run code with file-system operations pointed
+# at the application's xap file, since the tests
+# run in their own xap
+# 
+#   run_from_application { require 'foo' }
+#
+def run_from_application
+  tests = DynamicApplication.xap_file
+  DynamicApplication.xap_file = nil
+  yield
+  DynamicApplication.xap_file = tests
 end
 
 $calc.clear
