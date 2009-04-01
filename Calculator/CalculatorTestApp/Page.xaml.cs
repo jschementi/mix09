@@ -30,14 +30,14 @@ namespace CalculatorTestApp
             });
 
             Functions.TextChanged += new TextChangedEventHandler(Functions_TextChanged);
-
+            
             // Pre-define a simple user-defined function
             LoadFunctions_Click(SaveFunctions, null);
 
             LoadFunctions.Click += new RoutedEventHandler(LoadFunctions_Click);
             SaveFunctions.Click += new RoutedEventHandler(SaveFunctions_Click);
         }
-        
+
         void SaveFunctions_Click(object sender, RoutedEventArgs e) {
             SaveFunctions.Content = "Saving ...";
 
@@ -80,7 +80,7 @@ namespace CalculatorTestApp
                         HtmlPage.Window.Alert("Error, please try again");
                     }
                 });
-            } catch (Exception e) {
+            } catch (Exception) {
                 this.Dispatcher.BeginInvoke(delegate() {
                     HtmlPage.Window.Alert("Error, please try again");
                 });
@@ -108,9 +108,9 @@ namespace CalculatorTestApp
         // Execute the script code in the Functions buffer, and add buttons to the UI
         // to call the function if it doesn't exist.
         void Functions_TextChanged(object sender, TextChangedEventArgs e) {
+            FunctionDefinitions.Children.Clear();
             try {
                 object result = _engine.Execute(Functions.Text.ToString());
-                FunctionDefinitions.Children.Clear();
                 foreach(var method in _engine.ListOfMethods()) {
                     if (!method.StartsWith("__")) {
                         var b = new Button();
@@ -120,10 +120,11 @@ namespace CalculatorTestApp
                         FunctionDefinitions.Children.Add(b);
                     }
                 }
-            } catch (Exception _e) {
-                // Ignore exception
+            } catch (Exception) {
+                // Ignore
             }
         }
+        
 
         // Call a user-defined function
         void RunCustomFunction(object sender, RoutedEventArgs e) {
