@@ -37,7 +37,7 @@ describe "Python Engine" do
 
   should 'list defined methods' do
     only_ruby_methods = lambda do
-      @p.ListOfMethods().select{|i| not i.to_s =~ /__/}
+      @p.ListOfMethods().reject{ |i| i.to_s =~ /__/ }
     end
 
     only_ruby_methods[].size.should == 0
