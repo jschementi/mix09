@@ -29,7 +29,7 @@ namespace CalculatorTestApp
                 _engine = new PythonEngine();
             });
 
-            Functions.KeyUp += new KeyEventHandler(Functions_KeyUp);
+            Functions.TextChanged += new TextChangedEventHandler(Functions_TextChanged);
 
             // Pre-define a simple user-defined function
             LoadFunctions_Click(SaveFunctions, null);
@@ -101,13 +101,13 @@ namespace CalculatorTestApp
         void LoadFunctions_Completed(object sender, DownloadStringCompletedEventArgs e) {
             Functions.IsEnabled = false;
             Functions.Text = e.Result;
-            Functions_KeyUp(Functions, null);
+            Functions_TextChanged(Functions, null);
             Functions.IsEnabled = true;
         }
 
         // Execute the script code in the Functions buffer, and add buttons to the UI
         // to call the function if it doesn't exist.
-        void Functions_KeyUp(object sender, KeyEventArgs e) {
+        void Functions_TextChanged(object sender, TextChangedEventArgs e) {
             try {
                 object result = _engine.Execute(Functions.Text.ToString());
                 FunctionDefinitions.Children.Clear();
