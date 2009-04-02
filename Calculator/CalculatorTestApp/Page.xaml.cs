@@ -125,7 +125,6 @@ namespace CalculatorTestApp
             }
         }
         
-
         // Call a user-defined function
         public void RunCustomFunction(object sender, RoutedEventArgs e) {
             try {
