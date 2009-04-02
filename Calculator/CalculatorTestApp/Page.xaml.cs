@@ -107,7 +107,7 @@ namespace CalculatorTestApp
 
         // Execute the script code in the Functions buffer, and add buttons to the UI
         // to call the function if it doesn't exist.
-        void Functions_TextChanged(object sender, TextChangedEventArgs e) {
+        public void Functions_TextChanged(object sender, TextChangedEventArgs e) {
             FunctionDefinitions.Children.Clear();
             try {
                 object result = _engine.Execute(Functions.Text.ToString());
@@ -127,7 +127,7 @@ namespace CalculatorTestApp
         
 
         // Call a user-defined function
-        void RunCustomFunction(object sender, RoutedEventArgs e) {
+        public void RunCustomFunction(object sender, RoutedEventArgs e) {
             try {
                 object result = _engine.CallMethod((string)((Button)sender).Tag, (object)Decimal.Parse(Calculator.CurrentNumber.ToString()));
                 Calculator.CurrentNumber = new NumberProject.Number(result.ToString());

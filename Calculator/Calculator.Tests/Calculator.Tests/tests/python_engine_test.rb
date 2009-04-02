@@ -5,17 +5,6 @@ run_from_application do
   include CalculatorTestApp
 end
 
-def define_python_methods
-  @p.Execute("
-def foo(x):
-  return x + x
-
-def bar(x):
-  return x * x
-"
-  )
-end
-
 describe "Python Engine" do
   before do
     @p = PythonEngine.new
@@ -33,6 +22,17 @@ describe "Python Engine" do
   should 'execute a function as a string' do
     @p.Execute("def foo(x):\n  return x + x\n\nfoo(5)").
       should.equal 10
+  end
+
+  def define_python_methods
+    @p.Execute("
+def foo(x):
+  return x + x
+
+def bar(x):
+  return x * x
+"
+    )
   end
 
   should 'list defined methods' do

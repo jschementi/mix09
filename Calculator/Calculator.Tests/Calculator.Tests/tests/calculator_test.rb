@@ -46,4 +46,43 @@ describe 'Calculator' do
     $calc.do 2, 'float', 3
     $calc.screen.should.equal '2.3'
   end
+
+  describe 'Functions' do
+    before do
+      @functions = Application.current.root_visual.find_name('Functions')
+      class << @functions
+        def update_text(val)
+          self.text = val
+          Application.current.root_visual.Functions_TextChanged nil, nil
+        end
+      end
+      @functions.update_text ''
+
+      @definitions = Application.current.root_visual.find_name('FunctionDefinitions')
+
+      @valid = "def foo(x):\n  return x + 2\n\ndef baz(x):\n  return x + 4\n\n"
+      @invalid = "def foo(x)"
+    end
+
+    should 'show none with empty code' do
+      @definitions.children.size.should.equal 0
+    end
+
+    should 'show none with incomplete code' do
+      @functions.update_text @invalid
+      @definitions.children.size.should.equal 0
+    end
+
+    should 'show with valid code' do
+      @functions.update_text @valid
+      @definitions.children.size.should.equal 2
+    end
+
+    should 'not retain buttons when moving from valid to invalid code' do
+      @functions.update_text @valid
+      @definitions.children.size.should.equal 2
+      @functions.update_text @invalid
+      @definitions.children.size.should.equal 0
+    end
+  end
 end
