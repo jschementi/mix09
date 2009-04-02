@@ -65,5 +65,37 @@ def run_from_application
   DynamicApplication.xap_file = tests
 end
 
-$calc.clear
+#
+# Define python methods for testing
+# the python engine
+#
+def define_python_methods
+  @p.Execute("
+def foo(x):
+  return x + x
 
+def bar(x):
+  return x * x
+"
+  )
+end
+
+#
+# Initialize variables for defining and running 
+# functions
+#
+def init_vars
+  @page = Application.current.root_visual
+  @functions = @page.find_name('Functions')
+  @definitions = @page.find_name('FunctionDefinitions')
+  @valid = "def foo(x):\n  return x + 2\n\ndef baz(x):\n  return x + 4\n\n"
+  @invalid = "def foo(x)"
+  class << @functions
+    def update_text(val)
+      self.text = val
+      Application.current.root_visual.Functions_TextChanged nil, nil
+    end
+  end
+end
+
+$calc.clear

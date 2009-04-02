@@ -1,19 +1,5 @@
 require 'helper'
 
-def init_vars
-  @page = Application.current.root_visual
-  @functions = @page.find_name('Functions')
-  @definitions = @page.find_name('FunctionDefinitions')
-  @valid = "def foo(x):\n  return x + 2\n\ndef baz(x):\n  return x + 4\n\n"
-  @invalid = "def foo(x)"
-  class << @functions
-    def update_text(val)
-      self.text = val
-      Application.current.root_visual.Functions_TextChanged nil, nil
-    end
-  end
-end
-
 describe 'Defining functions' do
   before do
     init_vars

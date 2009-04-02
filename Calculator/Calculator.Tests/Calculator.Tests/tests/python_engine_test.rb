@@ -24,17 +24,6 @@ describe "Python Engine" do
       should.equal 10
   end
 
-  def define_python_methods
-    @p.Execute("
-def foo(x):
-  return x + x
-
-def bar(x):
-  return x * x
-"
-    )
-  end
-
   should 'list defined methods' do
     only_ruby_methods = lambda do
       @p.ListOfMethods().reject{ |i| i.to_s =~ /__/ }
