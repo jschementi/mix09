@@ -1,5 +1,7 @@
 Eggs.config(
   :tests => [
-    :calculator, :python_engine
+    :calculator, 
+    :python_engine,
+    :function
   ]
 )
